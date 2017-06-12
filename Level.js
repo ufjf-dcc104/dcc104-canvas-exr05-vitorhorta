@@ -15,12 +15,10 @@ Level.prototype.init = function () {
 
 Level.prototype.respawn = function () {
     if (this.respawnCooldown > 0) return;
-    for (var i = 0; i < 5; i++) {
+    for (var i = 0; i < 3; i++) {
         var inimigo = new Enemy();
-        var xPosition = Math.floor((Math.random() * 10) + 1);
-        var yPosition = Math.floor((Math.random() * 10) + 1);
-        inimigo.sprite.x = 40 * xPosition;
-        inimigo.sprite.y = 40 * yPosition;
+        inimigo.sprite.x = 250;
+        inimigo.sprite.y = 100 + 100 * i;
         inimigo.sprite.width = 64;
         inimigo.sprite.height = 64;
         inimigo.pontos = 0;

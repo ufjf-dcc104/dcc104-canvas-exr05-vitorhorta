@@ -30,7 +30,9 @@
     var player = new Player();
     var player2 = new Player();
     player.imageLib = il;
-    player2.sprite.x = 180;
+    player2.sprite.x = 450;
+    player2.sprite.y = 200;
+    player.sprite.y = 200;
     player2.imageLib = il;
     player2.fireButton = 32;
     player2.leftButton = 65;
@@ -79,12 +81,7 @@
         dt = (atual - anterior)/1000;
         ctx.clearRect(0,0,eCanvas.width, eCanvas.height);
         ctx.strokeRect(0,0,eCanvas.width, eCanvas.height);
-        ctx.fillStyle = "darkgreen";
-        ctx.fillText("Energia", 10, 30);
-        ctx.fillStyle = 'green';
-        ctx.fillRect(10,50,player.hp,20);
-        ctx.fillText("Vida: " + player.vidas, 400, 40);
-        ctx.fillText("Pontos: " + player.pontos, 400, 80);
+
 //        level.respawn(dt);
 //        level.perseguir(player.sprite,dt);
         player.moverAng(dt);
@@ -104,7 +101,9 @@
 
     document.addEventListener("playerDies", function(e) {
         gameRunning = false;
-        ctx.fillText("GAME OVER",200,200);
+        var winner = 'Jogador Um';
+        if(player2.alive == true) winner = 'Jogador Dois';
+        ctx.fillText(winner + " venceu",200,200);
     });
 
 </script>
